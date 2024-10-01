@@ -1,18 +1,16 @@
-
 <div class="container">
-  <h3 appHighlight>Survolez-moi pour voir la surbrillance !</h3>
-  <input type="text" [(ngModel)]="title"  placeholder="rechercher"  class="form-control mb-3"/>
-  <div class="row">
-   
-   <div class="col-md-4" *ngFor="let category of categories | filtre:title"
-     style="margin-bottom: 20px;">
+  <div  class="row">
+    Search: <input class="form-control" style="margin-bottom:30px" name="title" [(ngModel)]="title">
+    <ng-container *ngFor="let c of categories |filtre:title">
+    <div class="col-md-4" style="margin-bottom: 20px;">
+      
+      <img [src]="c.image" alt="Grand électroménager" class="img-fluid h-50 w-75" (click)="afficherdescription(c.id)">
+      <h3>:{{c.title| uppercase}}</h3>
+      <button class="btn btn-primary" *ngIf="c.available==true" >Voir produits</button>
+      <p *ngIf="c.available==false">Catégorie non disponible</p>
   
-  <!--     <div *ngIf="!titre || category.title.toLowerCase().includes(titre.toLowerCase())" class="col-md-4" style="margin-bottom: 20px;" >--> 
-      <!--  <div class="col-md-4" *ngFor="let category of filterCateg" style="margin-bottom: 20px;">--> 
-          <img [src]="category.image" [alt]="category.title" class="img-fluid h-50 w-75" (click)="afficherdescription(category.description)">
-          <h3>{{ category.title |uppercase }}</h3>
-          <button *ngIf="category.available" class="btn btn-primary">Voir produits</button>
-          <p *ngIf="!category.available" class="text-danger">Catégorie non disponible</p>
-    </div >
-    
+    </div>
+    </ng-container>
+
+</div>
 </div>

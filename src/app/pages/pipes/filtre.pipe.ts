@@ -6,15 +6,14 @@ import { __values } from 'tslib';
 })
 export class FiltrePipe implements PipeTransform {
 
+ 
   transform(items: any[], searchText: string): any[] {
-    if ( !searchText) {
-      return items; 
-    }
-
-    return items.filter(item => 
-      item.title.toLowerCase().includes(searchText) 
-    );
-
-}
+    if (!items) return [];
+    if (!searchText) return items;
+    searchText = searchText.toLowerCase();
+    return items.filter(item => {
+      return JSON.stringify(item).toLowerCase().includes(searchText);
+    });
+  }
 
 }
