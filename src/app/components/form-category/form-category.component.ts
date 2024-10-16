@@ -12,8 +12,9 @@ ngOnInit(): void {
 this.category =new Category();
 
 }
-add(){
-  console.log(this.category)
+add() {
+  this.category.available = true;
+  console.log(this.category);
 }
 
 
