@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductComponent } from './components/product/product.component';
+import { FormCategoryComponent } from './components/form-category/form-category.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
       import('./features/profile/profile.module')
         .then((m) => m.ProfileModule),
   },
+  {path:'category/add', component: FormCategoryComponent},
   { path: '**', component: NotFoundComponent },
 ];
 
